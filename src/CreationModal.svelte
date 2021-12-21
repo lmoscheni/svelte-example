@@ -22,34 +22,32 @@
               </h3>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
-                  Complete al the fields
+                  Complete the fields, only the title is <strong>required</strong>.
                 </p>
               </div>
               <div class="w-full py-5 flex flex-row flex-wrap">
                 <label class="text-sm font-semibold uppercase">Title</label>    
-                <input class="w-full mb-3 px-1 rounded-md" bind:value={title} />
+                <input class="w-full h-9 mb-3 px-1 rounded-md" bind:value={title} />
                 <label class="text-sm font-semibold uppercase">Content</label>
-                <textarea class="w-full p-1 rounded-md"></textarea>
+                <textarea class="w-full h-28 p-1 rounded-md"bind:value={content}></textarea>
               </div>
             </div>
           </div>
         </div>
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <button 
-                disabled={!title}
-                type="button"
-                on:click={() => { onAccept({ title, content }); title = ""; content = ""; }}
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 sm:ml-3 sm:w-auto sm:text-sm disabled:bg-gray-500 disabled:text-white disabled:cursor-not-allowed"
-            >
-                Save
-            </button>
-            <button 
-                type="button"
-                on:click={() => onClose()}
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-            >
-                Cancel
-            </button>
+        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-3">
+          <button 
+            disabled={!title}
+            on:click={() => { onAccept({ title, content }); title = ""; content = ""; }}
+            class="m-0 px-3 py-1 rounded-md shadow-sm border-2 border-green-600 text-sm font-semibold text-white bg-green-600 hover:bg-inherit hover:text-green-600 disabled:bg-gray-500 disabled:text-white disabled:cursor-not-allowed disabled:border-gray-500"
+          >
+              Save
+          </button>
+          <button 
+              on:click={() => { onClose(); title = ""; content = ""; }}
+              class="m-0 px-3 py-1 rounded-md shadow-sm border-2 border-gray-500 text-sm font-semibold hover:bg-gray-500 hover:text-white"
+          >
+              Cancel
+          </button>
         </div>
       </div>
     </div>

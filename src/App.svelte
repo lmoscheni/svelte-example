@@ -22,11 +22,11 @@
 	}
 
 	export const createTodo = (payload: { title: string, content: string }) => {
-		todos.push({
+		todos = [ ...todos, {
 			id: uuidV4(),
 			checked: false,
 			...payload
-		});
+		}];
 	}
 </script>
 
@@ -34,7 +34,7 @@
 	<h1 class="py-5 text-4xl font-bold">Todo list example with Svelte</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
 
-	<h2 class="py-5 text-2xl font-semibold italic text-blue-400">TODO's:</h2>
+	<h2 class="py-5 text-3xl font-semibold">TODO's:</h2>
 	<CreationModal 
 		isOpen={isModalOpen} 
 		onClose={() => { isModalOpen = !isModalOpen; }} 
@@ -45,7 +45,7 @@
 			<TodoComponent bind:item={item} removeTodo={() => removeTodo(item)} />
 		{/each}
 		<button 
-			class="w-full sm:3/5 md:w-2/5 xl:w-1/4 border-none bg-blue-100 text-white text-[5em] text-bold shadow-md" 
+			class="w-full sm:3/5 md:w-2/5 xl:w-1/4 border-none bg-neutral-200 text-black text-[5em] text-bold shadow-md" 
 			on:click={() => { isModalOpen = !isModalOpen; }}
 		>+</button>
 	</div>

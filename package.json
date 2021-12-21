@@ -8,7 +8,7 @@
     "start": "sirv public --no-clear",
     "check": "svelte-check --tsconfig ./tsconfig.json",
     "public:gh-page": "git subtree push --prefix public/ origin gh-pages",
-    "deploy": "npm run build & npm run public:gh-page"
+    "deploy": "npm run build && npm run public:gh-page"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
